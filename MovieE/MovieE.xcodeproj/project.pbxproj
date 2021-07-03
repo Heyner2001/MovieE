@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -130,6 +130,7 @@
 		3A23820A268FC92300CC7160 /* MovieE */ = {
 			isa = PBXGroup;
 			children = (
+				3A3313A9269004D5002397BA /* NetworkManager */,
 				3A59D437268FF279008239D3 /* Home */,
 				3A59D445268FFAD6008239D3 /* globalNavigationViewController.swift */,
 				3A23820B268FC92300CC7160 /* AppDelegate.swift */,
@@ -160,6 +161,21 @@
 			path = MovieEUITests;
 			sourceTree = "<group>";
 		};
+		3A3313A9269004D5002397BA /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				3A3313AB26900618002397BA /* AbstractClass */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		3A3313AB26900618002397BA /* AbstractClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AbstractClass;
+			sourceTree = "<group>";
+		};
 		3A59D437268FF279008239D3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +195,6 @@
 				88D22ED54F3DD38B1428B1BA /* Pods-MovieETests.debug.xcconfig */,
 				EF59A623762057570E63A948 /* Pods-MovieETests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
