@@ -19,10 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        let homePresenter = HomePresenter()
-        globalNavigationViewController = UINavigationController(rootViewController: homePresenter)
-        window?.rootViewController = globalNavigationViewController
-        globalNavigationViewController?.isNavigationBarHidden = true
+        window?.makeKeyAndVisible()
+        NetworkManager.shared.getRequest(url: StringSources.shared.getMoviesForPage(page: 1)) { result in
+            let homePresenter = HomePresenter(moviesData: result)
+            globalNavigationViewController = UINavigationController(rootViewController: homePresenter)
+            self.window?.rootViewController = globalNavigationViewController
+            globalNavigationViewController?.isNavigationBarHidden = true
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
