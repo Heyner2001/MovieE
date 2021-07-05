@@ -20,7 +20,6 @@ class HomePresenter: UIViewController {
         guard let data = homeLogic.parseJSON(jsonData: moviesData) else { return }
         homeView = HomeView(moviesPage: data)
         view.addSubview(homeView ?? UIView())
-        
         setUpConstraints()
     }
     

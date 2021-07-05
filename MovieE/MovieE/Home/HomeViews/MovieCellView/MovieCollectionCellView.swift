@@ -11,22 +11,22 @@ import Kingfisher
 
 class MovieCollectionCellView: UICollectionViewCell {
     
+    private var movieData: Movie?
+    
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        //Shadow
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        view.layer.shadowOpacity = 0.2
-        
         view.addSubview(movieImage)
         return view
     }()
     
-    private let movieImage: UIImageView = {
+    private lazy var movieImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                              action: #selector(openMovieDetail)))
         return imageView
         
     }()
@@ -45,8 +45,16 @@ class MovieCollectionCellView: UICollectionViewCell {
         movieImage.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
     
-    func setUpMovieImage(url: String) {
-        movieImage.kf.setImage(with: StringSources.shared.getImageMoviesUrl(imageName: url))
+    func setUpMovieData(movieData: Movie) {
+        self.movieData = movieData
+        movieImage.kf.setImage(with: StringSources.shared.getImageMoviesUrl(imageName: movieData.posterPath ?? ""))
+    }
+    
+    @objc private func openMovieDetail() {
+        guard let data = movieData else { return }
+        let vc = MovieDetailPresenter(movieData: data)
+        vc.modalPresentationStyle = .overFullScreen
+        globalNavigationViewController?.present(vc, animated: true, completion: nil)
     }
     
     required init?(coder: NSCoder) {

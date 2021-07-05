@@ -27,6 +27,9 @@ class StringSources {
     // ------- Copies --------
     //    Home copies
     let homeTitle = "MovieE"
+    let voteCountTitle = "Number of votes: "
+    let qualificationTitle = "Qualification: "
+    let originalLanguageTitle = "Original language: "
     
     private init() {}
 }

@@ -59,12 +59,10 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = moviesCollectionView.dequeueReusableCell(withReuseIdentifier: movieCellKey, for: indexPath) as? MovieCollectionCellView else {
             return UICollectionViewCell() }
         
-        cell.setUpMovieImage(url: moviesArray[indexPath.row].posterPath ?? "")
+        cell.setUpMovieData(movieData: moviesArray[indexPath.row])
         
         return cell
     }
-    
-    
 }
 
 extension HomeView: UICollectionViewDelegateFlowLayout {
