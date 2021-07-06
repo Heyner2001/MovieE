@@ -10,21 +10,31 @@ import Alamofire
 
 class HomePresenter: UIViewController {
     
+    private let homeNavBar = HomeNavBarView()
     private var homeView: HomeView?
-    private let homeLogic = MoviesModel()
+    private let moviesLogic = MoviesModel()
     
     init(moviesData: Data?) {
         super.init(nibName: nil, bundle: nil)
         view.backgroundColor = .white
         
-        guard let data = homeLogic.parseJSON(jsonData: moviesData) else { return }
+        guard let data = moviesLogic.parseJSON(jsonData: moviesData) else { return }
         homeView = HomeView(moviesPage: data)
+        view.addSubview(homeNavBar)
         view.addSubview(homeView ?? UIView())
         setUpConstraints()
     }
     
     private func setUpConstraints() {
-        homeView?.snp.makeConstraints { $0.edges.equalToSuperview() }
+        homeNavBar.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
+            $0.top.equalToSuperview().offset(UIApplication.statusBarHeight)
+        }
+        
+        homeView?.snp.makeConstraints {
+            $0.left.right.bottom.equalToSuperview()
+            $0.top.equalTo(homeNavBar.snp.bottom).offset(12)
+        }
     }
     
     required init?(coder: NSCoder) {

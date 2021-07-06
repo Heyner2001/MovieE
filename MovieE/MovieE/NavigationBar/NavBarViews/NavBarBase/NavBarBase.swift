@@ -28,7 +28,7 @@ class NavBarBase: UIView {
     
     internal func setUpConstraints() {
         
-        snp.makeConstraints { $0.height.equalTo(60) }
+        snp.makeConstraints { $0.height.equalTo(50) }
         contentStack.snp.makeConstraints {
             $0.edges.equalToSuperview()
                 .inset(UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16))

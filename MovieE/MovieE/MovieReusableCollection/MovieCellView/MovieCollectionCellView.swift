@@ -47,7 +47,7 @@ class MovieCollectionCellView: UICollectionViewCell {
     
     func setUpMovieData(movieData: Movie) {
         self.movieData = movieData
-        movieImage.kf.setImage(with: StringSources.shared.getImageMoviesUrl(imageName: movieData.posterPath ?? ""))
+        movieImage.kf.setImage(with: StringSources.shared.getImageMoviesUrl(imageName: movieData.posterPath ?? ""), placeholder: UIImage(named: "static_image_placeholder"))
     }
     
     @objc private func openMovieDetail() {

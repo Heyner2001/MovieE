@@ -114,9 +114,9 @@ class MovieDetailView: UIView {
         backdropImage.kf.setImage(with: StringSources.shared.getImageMoviesUrl(imageName: movieData.backdropPath ?? ""))
         movieNameLabel.text = movieData.title
         movieOverview.text = movieData.overview
-        originalLanguageLabel.text?.append(movieData.originalLanguage)
-        qualificationLabel.text?.append("\(movieData.voteAverage)")
-        voteCountLabel.text?.append("\(movieData.voteCount)")
+        originalLanguageLabel.text?.append(movieData.originalLanguage ?? "")
+        qualificationLabel.text?.append("\(String(describing: movieData.voteAverage))")
+        voteCountLabel.text?.append("\(String(describing: movieData.voteCount))")
         
         addSubview(blurEffectView)
         sendSubviewToBack(blurEffectView)

@@ -24,9 +24,16 @@ class StringSources {
         return URL(string: movieImageUrlBase + imageName)
     }
     
+    private let searchUrlBase = "https://api.themoviedb.org/3/search/movie"
+    func getSearchUrl(search: String) -> String {
+        let seearchWithoutSpaces = search.replacingOccurrences(of: " ", with: "%20")
+        return searchUrlBase + accessToken + "&query=" + seearchWithoutSpaces
+    }
+    
     // ------- Copies --------
     //    Home copies
     let homeTitle = "MovieE"
+    let searchPlaceholder = "Search the movies here"
     let voteCountTitle = "Number of votes: "
     let qualificationTitle = "Qualification: "
     let originalLanguageTitle = "Original language: "
