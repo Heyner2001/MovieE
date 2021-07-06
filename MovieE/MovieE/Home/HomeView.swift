@@ -24,7 +24,6 @@ class HomeView: UIView {
             $0.left.equalToSuperview().offset(16)
             $0.right.equalToSuperview().offset(-16)
             $0.bottomMargin.equalToSuperview()
-            
         }
     }
     
