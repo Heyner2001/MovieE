@@ -23,18 +23,18 @@ struct MoviesPage: Codable {
 
 struct Movie: Codable {
     let posterPath: String?
-    let adult: Bool
-    let overview: String
-    let releaseDate: String
-    let genreIds: [Int]
+    let adult: Bool?
+    let overview: String?
+    let releaseDate: String?
+    let genreIds: [Int]?
     let id: Int
-    let originalTitle: String
-    let originalLanguage: String
-    let title: String
+    let originalTitle: String?
+    let originalLanguage: String?
+    let title: String?
     let backdropPath: String?
-    let popularity: Float
+    let popularity: Float?
     let voteCount: Int
-    let video: Bool
+    let video: Bool?
     let voteAverage: Float
     
     private enum CodingKeys: String, CodingKey {

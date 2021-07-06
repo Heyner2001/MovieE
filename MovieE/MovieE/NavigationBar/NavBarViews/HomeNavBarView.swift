@@ -53,7 +53,8 @@ class HomeNavBarView: NavBarBase {
     }
     
     @objc func searchButtonAction() {
-        
+        let vc = SearchPresenter()
+        globalNavigationViewController?.pushViewController(vc, animated: true)
     }
     
     required init?(coder: NSCoder) {
