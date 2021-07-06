@@ -34,6 +34,8 @@ class StringSources {
     //    Home copies
     let homeTitle = "MovieE"
     let searchPlaceholder = "Search the movies here"
+    let emptyResultsEmoji = "😕"
+    let emptyResultsTitle = "This search contains no result"
     let voteCountTitle = "Number of votes: "
     let qualificationTitle = "Qualification: "
     let originalLanguageTitle = "Original language: "

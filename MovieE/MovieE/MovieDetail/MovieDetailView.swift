@@ -115,8 +115,8 @@ class MovieDetailView: UIView {
         movieNameLabel.text = movieData.title
         movieOverview.text = movieData.overview
         originalLanguageLabel.text?.append(movieData.originalLanguage ?? "")
-        qualificationLabel.text?.append("\(String(describing: movieData.voteAverage))")
-        voteCountLabel.text?.append("\(String(describing: movieData.voteCount))")
+        qualificationLabel.text?.append("\(movieData.voteAverage)")
+        voteCountLabel.text?.append("\(movieData.voteCount)")
         
         addSubview(blurEffectView)
         sendSubviewToBack(blurEffectView)
